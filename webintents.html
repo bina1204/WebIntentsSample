@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+ </head>
+ <body>
+  <button>invoke</button>
+  <div id="result">
+  </div>
+  <script>
+  	document.querySelector("button").onclick = function() {
+  		var intent = new WebKitIntent("http://webintents.org/edit", "image/*", "https://www.google.co.jp/images/srpr/logo3w.png");
+  		window.navigator.webkitStartActivity(intent, function(result){
+  			console.log(result);
+  			document.getElementById("result").src = result;
+  		}, null);
+  	}
+  </script>
+   </body>
+</html>
